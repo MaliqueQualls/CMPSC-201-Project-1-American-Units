@@ -1,0 +1,46 @@
+//WCMN Lab 1    
+    #include <iostream>
+    #include <math.h>
+    using namespace std;
+    
+    int main()
+{
+  const double g=-32; //Acceleration due to gravity in y
+  const double PI=3.1415926; //It's Pi dude...
+   double FA; //Initial Angle in Degrees
+   double angi; //Initial Angle in Radians
+   double Vi; //Initial Velocity
+   double x; //Distance to Building
+   double hb; //Height of Building
+   double t; //Time to hit building
+   double vx; //Velocity in x
+   double vyi; //Initial Velocity in y
+   double vyf; //Final Velocity in y
+   double Vf; //Final Total Velocity
+   double angf; //Final Angle in Radians
+   double angfd; //Final Angle in Degrees
+   
+   cout << "Enter the Velocity in ft/s: ";
+   cin >> Vi;
+   cout<<"Enter Initial Angle: ";
+   cin>>FA;
+   cout<<"Enter the Distance to the Target (in ft): ";
+   cin>>x;
+   angi=(PI/180)*FA; //Conversion from Degrees to Radians
+   vx=(Vi)*cos(angi); //Solution for Velocity in x
+   t=x/vx;
+   vyi=(Vi)*sin(angi);
+   vyf=vyi+g*t;
+   Vf=sqrt((pow(vx,2))+(pow(vyf,2)));
+   angf=atan(vx/vyf);
+   angfd=(180/PI)*angf;
+   cout<<"-------------------------------------------------"<<endl;
+   cout<<"The Velocity in x is: "<<vx<<endl;
+   cout<<"The time to hit the building is: "<<t<<endl;
+   cout<<"The Initial Velocity in y is: "<<vyi<<endl;
+   cout<<"The Final Velocity in y is: "<<vyf<<endl;
+   cout<<"The Final Total Velocity is: "<<Vf<<endl;
+   cout<<"It is Traveling in the direction of: "<<angfd<<endl;
+  
+    return 0;
+}
